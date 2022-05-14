@@ -19,12 +19,18 @@
                             <?php
                             $no = 1;
                             foreach ($data_nilai as $rdata_nilai) : ?>
-                                <tr class="text-center">
-                                    <td><?= $no++; ?></td>
-                                    <td><?= $rdata_nilai->nilai_no; ?></td>
-                                    <td><?= $rdata_nilai->nilai_co; ?></td>
-                                    <td><?= $rdata_nilai->tanggal_input; ?></td>
-                                </tr>
+                            <tr class="text-center">
+                                <td><?= $no++; ?></td>
+                                <td><?= $rdata_nilai->nilai_no; ?></td>
+                                <td><?= $rdata_nilai->nilai_co; ?></td>
+                                <td><?= $rdata_nilai->tanggal_input; ?></td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger"
+                                        href="<?php echo base_url() . 'Nilai_sensor/hapus/' . $rdata_nilai->id_nilai ?>"><i
+                                            class="fa fa-trash">
+                                        </i> </a>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>

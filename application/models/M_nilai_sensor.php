@@ -10,4 +10,10 @@ class M_nilai_sensor extends CI_Model
 
         return $result;
     }
+
+    public function hapus($where,$table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
 }

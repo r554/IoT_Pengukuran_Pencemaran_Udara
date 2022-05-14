@@ -43,10 +43,10 @@
                                 <td><?= $rdata_kriteria->batas_sedang; ?></td>
                                 <td><?= $rdata_kriteria->batas_tinggi; ?></td>
                                 <td>
-                                    <a class="btn btn-sm btn-success"
-                                        href="<?php echo base_url() . 'Data_kriteria/edit/' . $rdata_kriteria->id_kriteria; ?>"><i
-                                            class="fa fa-edit">
-                                        </i> </a>
+                                    <a
+                                        href="<?php echo base_url() . 'Data_kriteria/edit/' . $rdata_kriteria->id_kriteria ?>"><button
+                                            class="btn btn-sm btn-success"><i class="fa fa-edit"></i> </button>
+                                    </a>
                                     <a class="btn btn-sm btn-danger"
                                         href="<?php echo base_url() . 'Data_kriteria/hapus/' . $rdata_kriteria->id_kriteria ?>"><i
                                             class="fa fa-trash">

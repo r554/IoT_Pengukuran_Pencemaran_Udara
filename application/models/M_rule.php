@@ -10,4 +10,29 @@ class M_rule extends CI_Model
 
         return $result;
     }
+
+    public function input($data) 
+    {
+        $this->db->insert('tbl_rule_fuzzy', $data);
+    }
+
+
+    public function edit($where,$table)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+
+    public function update($where,$data,$table)
+    {
+        $this->db->where($where);
+        $this->db->update($table,$data);
+    }
+
+
+    public function hapus($where,$table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
 }

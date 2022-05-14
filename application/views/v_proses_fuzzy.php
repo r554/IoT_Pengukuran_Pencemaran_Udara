@@ -58,6 +58,12 @@
                                             }
                                             ?>
                                     </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-danger"
+                                            href="<?php echo base_url() . 'Proses_fuzzy/hapus/' . $rnilai_hasil->id_hasil ?>"><i
+                                                class="fa fa-trash">
+                                            </i> </a>
+                                    </td>
                                 </tr>
                                 <?php endforeach;
                                 ?>
@@ -103,7 +109,7 @@ var timer = null; // For referencing the timer
         $('#btnCounter').on('click', function(e) {
             e.preventDefault();
             window.location =
-            "<?= base_url('Proses_fuzzy/fuzzyfikasi') ?>"; //redirect ke halaman berikutnya
+                "<?= base_url('Proses_fuzzy/fuzzyfikasi') ?>"; //redirect ke halaman berikutnya
         });
     }
 }());

@@ -32,6 +32,13 @@ class Proses_fuzzy extends CI_Controller
         $this->load->view('Template/footer');
     }
 
+    public function hapus ($id)
+    {
+        $where = array ('id_hasil' => $id);
+        $this->M_proses_fuzzy->hapus($where,'tbl_hasil_fuzzy');
+        redirect('Proses_fuzzy');
+    }
+
 
     public function fuzzyfikasi()
     {
