@@ -58,6 +58,8 @@ class Proses_fuzzy extends CI_Controller
                 $A = 1;
             } else if (round($avg_co, 2) > 50) {
                 $A = 0;
+            }else {
+                $A = 0;
             }
             $h_a = round($A, 2);
 
@@ -70,6 +72,8 @@ class Proses_fuzzy extends CI_Controller
                 $B = (90 - round($avg_co, 2)) / (90 - 70);
             } else if (round($avg_co, 2) >= 50 && round($avg_co, 2) <= 70) {
                 $B = 1;
+            }else {
+                $B = 0;
             }
             $h_b = round($B, 2);
 
@@ -82,6 +86,8 @@ class Proses_fuzzy extends CI_Controller
                 $C = (146 - round($avg_co, 2)) / (146 - 126);
             } else if (round($avg_co, 2) >= 90 && round($avg_co, 2) <= 126) {
                 $C = 1;
+            }else {
+                $C = 0;
             }
             $h_c = round($C, 2);
 
@@ -94,6 +100,8 @@ class Proses_fuzzy extends CI_Controller
                 $D = (282 - round($avg_co, 2)) / (282 - 262);
             } else if (round($avg_co, 2) >= 146 && round($avg_co, 2) <= 262) {
                 $D = 1;
+            }else {
+                $D = 0;
             }
             $h_d = round($D, 2);
 
@@ -118,6 +126,8 @@ class Proses_fuzzy extends CI_Controller
                 $A_no = (0.1 - round($avg_no, 2)) / (0.1 - 0.05);
             } else if (round($avg_no, 2) <= 0.05) {
                 $A_no = 1;
+            }else {
+                $A = 0;
             }
             $h_no_a = round($A_no, 2);
 
@@ -130,6 +140,8 @@ class Proses_fuzzy extends CI_Controller
                 $B_no = (0.75 - round($avg_no, 2)) / (0.75 - 0.55);
             } else if (round($avg_no, 2) >= 0.1 && round($avg_no, 2) <= 0.55) {
                 $B_no = 1;
+            }else {
+                $B = 0;
             }
             $h_no_b = round($B_no, 2);
 
@@ -142,6 +154,8 @@ class Proses_fuzzy extends CI_Controller
                 $C_no = (1.23 - round($avg_no, 2)) / (1.23 - 1.03);
             } else if (round($avg_no, 2) >= 0.75 && round($avg_no, 2) <= 1.03) {
                 $C_no = 1;
+            }else {
+                $C = 0;
             }
             $h_no_c = round($C_no, 2);
 
@@ -154,6 +168,8 @@ class Proses_fuzzy extends CI_Controller
                 $D_no = (2.36 - round($avg_no, 2)) / (2.36 - 2.16);
             } else if (round($avg_no, 2) >= 1.23 && round($avg_no, 2) <= 2.16) {
                 $D_no = 1;
+            }else {
+                $D = 0;
             }
             $h_no_d = round($D_no, 2);
 
@@ -164,6 +180,8 @@ class Proses_fuzzy extends CI_Controller
                 $E_no = (round($avg_no, 2) - 2.16) / (2.36 - 2.16);
             } else if (round($avg_no, 2) >= 2.36) {
                 $E_no = 1;
+            }else {
+                $E = 0;
             }
             $h_no_e = round($E_no, 2);
         }
@@ -228,9 +246,9 @@ class Proses_fuzzy extends CI_Controller
         #Deffuzyfikasi Sugeno Weight Average
         // =============================================================
 
-        $wa = (($r1 * 40) + ($r2 * 40) + ($r3 * 50) + ($r4 * 40) + ($r5 * 50) + ($r6 * 60) + ($r7 * 45) + ($r8 * 55) + ($r9 * 65) + ($r10 * 40) +
-            ($r11 * 40) + ($r12 * 50) + ($r13 * 40) + ($r14 * 50) + ($r15 * 60) + ($r16 * 45) + ($r17 * 55) + ($r18 * 65) + ($r19 * 40) + ($r20 * 40) +
-            ($r21 * 50) + ($r22 * 40) + ($r23 * 50) + ($r24 * 60) + ($r25 * 45)) /
+        $wa = (($r1 * 50) + ($r2 * 75) + ($r3 * 125) + ($r4 * 175) + ($r5 * 225) + ($r6 * 75) + ($r7 * 100) + ($r8 * 150) + ($r9 * 200) + ($r10 * 250) +
+            ($r11 * 125) + ($r12 * 150) + ($r13 * 200) + ($r14 * 250) + ($r15 * 300) + ($r16 * 175) + ($r17 * 200) + ($r18 * 250) + ($r19 * 300) + ($r20 * 350) +
+            ($r21 * 225) + ($r22 * 250) + ($r23 * 300) + ($r24 * 350) + ($r25 * 400)) /
             ($r1 + $r2 + $r3 + $r4 + $r5 + $r6 + $r7 + $r8 + $r9 + $r10 +
                 $r11 + $r12 + $r13 + $r14 + $r15 + $r16 + $r17 + $r18 + $r19 + $r20 +
                 $r21 + $r22 + $r23 + $r24 + $r25);

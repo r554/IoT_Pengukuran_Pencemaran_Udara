@@ -5,6 +5,11 @@
         <hr />
         <div class="card">
             <div class="card-body">
+                <div class="col-lg-6 col-5 text-left">
+                    <a href="<?php echo site_url('Data_kriteria/tambah'); ?>" class="btn btn-sm btn-primary"><i
+                            class="fa fa-plus"></i>Tambah</a>
+                </div>
+                <br>
                 <div class="table-responsive">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -19,24 +24,34 @@
                                 <th>Batas Rendah</th>
                                 <th>Batas Sedang</th>
                                 <th>Batas Tinggi</th>
+                                <th>Action </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
                             foreach ($data_kriteria as $rdata_kriteria) : ?>
-                                <tr class="text-center">
-                                    <td><?= $no++; ?></td>
-                                    <td><?= $rdata_kriteria->nama_kriteria; ?></td>
-                                    <td><?= $rdata_kriteria->himpunan1; ?></td>
-                                    <td><?= $rdata_kriteria->himpunan2; ?></td>
-                                    <td><?= $rdata_kriteria->himpunan3; ?></td>
-                                    <td><?= $rdata_kriteria->himpunan4; ?></td>
-                                    <td><?= $rdata_kriteria->himpunan5; ?></td>
-                                    <td><?= $rdata_kriteria->batas_rendah; ?></td>
-                                    <td><?= $rdata_kriteria->batas_sedang; ?></td>
-                                    <td><?= $rdata_kriteria->batas_tinggi; ?></td>
-                                </tr>
+                            <tr class="text-center">
+                                <td><?= $no++; ?></td>
+                                <td><?= $rdata_kriteria->nama_kriteria; ?></td>
+                                <td><?= $rdata_kriteria->himpunan1; ?></td>
+                                <td><?= $rdata_kriteria->himpunan2; ?></td>
+                                <td><?= $rdata_kriteria->himpunan3; ?></td>
+                                <td><?= $rdata_kriteria->himpunan4; ?></td>
+                                <td><?= $rdata_kriteria->himpunan5; ?></td>
+                                <td><?= $rdata_kriteria->batas_rendah; ?></td>
+                                <td><?= $rdata_kriteria->batas_sedang; ?></td>
+                                <td><?= $rdata_kriteria->batas_tinggi; ?></td>
+                                <td>
+                                    <a class="btn btn-sm btn-success"
+                                        href="<?php echo base_url() . 'Data_kriteria/edit/' . $rdata_kriteria->id_kriteria; ?>"><i
+                                            class="fa fa-edit">
+                                        </i> </a>
+                                    <a class="btn btn-sm btn-danger"
+                                        href="<?php echo base_url() . 'Data_kriteria/hapus/' . $rdata_kriteria->id_kriteria ?>"><i
+                                            class="fa fa-trash">
+                                        </i> </a>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
@@ -51,6 +66,7 @@
                                 <th>Batas Rendah</th>
                                 <th>Batas Sedang</th>
                                 <th>Batas Tinggi</th>
+                                <th>Action </th>
                             </tr>
                         </tfoot>
                     </table>

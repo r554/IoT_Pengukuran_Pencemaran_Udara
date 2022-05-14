@@ -11,7 +11,9 @@
                         <div>
                             <h5 class="card-title">Pengujian Kualitas Udara</h5>
                         </div>
-                        <p class="card-text">Pengujian Kualitas Udara Dapat Digunakan Setelah 30 Menit Setelah Alat Dihidupkan</p> <button type="button" class="btn btn-success" id="btnCounter" disabled>Uji Kualitas Udara <span id="count"></span></button>
+                        <p class="card-text">Pengujian Kualitas Udara Dapat Digunakan Setelah 30 Menit Setelah Alat
+                            Dihidupkan</p> <button type="button" class="btn btn-success" id="btnCounter" disabled>Uji
+                            Kualitas Udara <span id="count"></span></button>
                     </div>
                 </div>
             </div>
@@ -36,13 +38,13 @@
                                 $no = 1;
                                 foreach ($nilai_hasil as $rnilai_hasil) :
                                 ?>
-                                    <tr class="text-center">
-                                        <td><?= $no++; ?></td>
-                                        <td><?= $rnilai_hasil->rata_nilai_co; ?></td>
-                                        <td><?= $rnilai_hasil->rata_nilai_no; ?></td>
-                                        <td><?= $rnilai_hasil->hasil_fuzzy; ?></td>
-                                        <td>
-                                            <?php
+                                <tr class="text-center">
+                                    <td><?= $no++; ?></td>
+                                    <td><?= $rnilai_hasil->rata_nilai_co; ?></td>
+                                    <td><?= $rnilai_hasil->rata_nilai_no; ?></td>
+                                    <td><?= round($rnilai_hasil->hasil_fuzzy, 2) ; ?></td>
+                                    <td>
+                                        <?php
                                             if ($rnilai_hasil->hasil_fuzzy <= 50) {
                                                 echo "Baik";
                                             } elseif ($rnilai_hasil->hasil_fuzzy <= 100) {
@@ -55,8 +57,8 @@
                                                 echo "Berbahaya";
                                             }
                                             ?>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                 <?php endforeach;
                                 ?>
                             </tbody>
@@ -80,28 +82,29 @@
 <!--end page wrapper -->
 
 <script>
-    var spn = document.getElementById("count");
-    var btn = document.getElementById("btnCounter");
+var spn = document.getElementById("count");
+var btn = document.getElementById("btnCounter");
 
-    var count = 10; // Set count
-    var timer = null; // For referencing the timer
+var count = 10; // Set count
+var timer = null; // For referencing the timer
 
-    (function countDown() {
-        // Display counter and start counting down
-        spn.textContent = count;
+(function countDown() {
+    // Display counter and start counting down
+    spn.textContent = count;
 
-        // Run the function again every second if the count is not zero
-        if (count !== 0) {
-            timer = setTimeout(countDown, 1000);
-            count--; // decrease the timer
-        } else {
-            // Enable the button
-            btn.removeAttribute("disabled");
-            spn.textContent = "";
-            $('#btnCounter').on('click', function(e) {
-                e.preventDefault();
-                window.location = "<?= base_url('Proses_fuzzy/fuzzyfikasi') ?>"; //redirect ke halaman berikutnya
-            });
-        }
-    }());
+    // Run the function again every second if the count is not zero
+    if (count !== 0) {
+        timer = setTimeout(countDown, 1000);
+        count--; // decrease the timer
+    } else {
+        // Enable the button
+        btn.removeAttribute("disabled");
+        spn.textContent = "";
+        $('#btnCounter').on('click', function(e) {
+            e.preventDefault();
+            window.location =
+            "<?= base_url('Proses_fuzzy/fuzzyfikasi') ?>"; //redirect ke halaman berikutnya
+        });
+    }
+}());
 </script>
