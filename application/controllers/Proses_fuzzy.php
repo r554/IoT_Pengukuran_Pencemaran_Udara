@@ -32,10 +32,10 @@ class Proses_fuzzy extends CI_Controller
         $this->load->view('Template/footer');
     }
 
-    public function hapus ($id)
+    public function hapus($id)
     {
-        $where = array ('id_hasil' => $id);
-        $this->M_proses_fuzzy->hapus($where,'tbl_hasil_fuzzy');
+        $where = array('id_hasil' => $id);
+        $this->M_proses_fuzzy->hapus($where, 'tbl_hasil_fuzzy');
         redirect('Proses_fuzzy');
     }
 
@@ -65,7 +65,7 @@ class Proses_fuzzy extends CI_Controller
                 $A = 1;
             } else if (round($avg_co, 2) > 50) {
                 $A = 0;
-            }else {
+            } else {
                 $A = 0;
             }
             $h_a = round($A, 2);
@@ -79,7 +79,7 @@ class Proses_fuzzy extends CI_Controller
                 $B = (90 - round($avg_co, 2)) / (90 - 70);
             } else if (round($avg_co, 2) >= 50 && round($avg_co, 2) <= 70) {
                 $B = 1;
-            }else {
+            } else {
                 $B = 0;
             }
             $h_b = round($B, 2);
@@ -93,7 +93,7 @@ class Proses_fuzzy extends CI_Controller
                 $C = (146 - round($avg_co, 2)) / (146 - 126);
             } else if (round($avg_co, 2) >= 90 && round($avg_co, 2) <= 126) {
                 $C = 1;
-            }else {
+            } else {
                 $C = 0;
             }
             $h_c = round($C, 2);
@@ -107,7 +107,7 @@ class Proses_fuzzy extends CI_Controller
                 $D = (282 - round($avg_co, 2)) / (282 - 262);
             } else if (round($avg_co, 2) >= 146 && round($avg_co, 2) <= 262) {
                 $D = 1;
-            }else {
+            } else {
                 $D = 0;
             }
             $h_d = round($D, 2);
@@ -133,7 +133,7 @@ class Proses_fuzzy extends CI_Controller
                 $A_no = (0.1 - round($avg_no, 2)) / (0.1 - 0.05);
             } else if (round($avg_no, 2) <= 0.05) {
                 $A_no = 1;
-            }else {
+            } else {
                 $A = 0;
             }
             $h_no_a = round($A_no, 2);
@@ -147,7 +147,7 @@ class Proses_fuzzy extends CI_Controller
                 $B_no = (0.75 - round($avg_no, 2)) / (0.75 - 0.55);
             } else if (round($avg_no, 2) >= 0.1 && round($avg_no, 2) <= 0.55) {
                 $B_no = 1;
-            }else {
+            } else {
                 $B = 0;
             }
             $h_no_b = round($B_no, 2);
@@ -161,7 +161,7 @@ class Proses_fuzzy extends CI_Controller
                 $C_no = (1.23 - round($avg_no, 2)) / (1.23 - 1.03);
             } else if (round($avg_no, 2) >= 0.75 && round($avg_no, 2) <= 1.03) {
                 $C_no = 1;
-            }else {
+            } else {
                 $C = 0;
             }
             $h_no_c = round($C_no, 2);
@@ -175,7 +175,7 @@ class Proses_fuzzy extends CI_Controller
                 $D_no = (2.36 - round($avg_no, 2)) / (2.36 - 2.16);
             } else if (round($avg_no, 2) >= 1.23 && round($avg_no, 2) <= 2.16) {
                 $D_no = 1;
-            }else {
+            } else {
                 $D = 0;
             }
             $h_no_d = round($D_no, 2);
@@ -187,7 +187,7 @@ class Proses_fuzzy extends CI_Controller
                 $E_no = (round($avg_no, 2) - 2.16) / (2.36 - 2.16);
             } else if (round($avg_no, 2) >= 2.36) {
                 $E_no = 1;
-            }else {
+            } else {
                 $E = 0;
             }
             $h_no_e = round($E_no, 2);
@@ -285,9 +285,11 @@ class Proses_fuzzy extends CI_Controller
         //     DATA SUDAH DI PROSES FUZZY SUGENO</div>');
         //     redirect('prosessugeno/index');
         // } else {
-        $this->M_proses_fuzzy->i_derajat_keanggotaan($data);
+
         $this->M_proses_fuzzy->i_rule_nilai($data2);
         $this->M_proses_fuzzy->hasil_fuzzy($data3);
+        $this->M_proses_fuzzy->i_derajat_keanggotaan($data);
+
 
         redirect(site_url('Proses_fuzzy'));
 
@@ -295,5 +297,18 @@ class Proses_fuzzy extends CI_Controller
         //         DATA BERHASIL DI PROSES DENGAN METODE FUZZY SUGENO</div>');
         //     redirect('prosessugeno/index');
         // }
+    }
+
+    public function detail_fuzzy($id)
+    {
+
+        $data['nilai_derajat'] = $this->M_proses_fuzzy->getId_nilai_derajat($id);
+        $data['nilai_rule'] = $this->M_proses_fuzzy->getId_nilai_rule($id);
+        $data['hasil'] = $this->M_proses_fuzzy->getId_hasil($id);
+
+        $data['title'] = "Detail Fuzzy";
+        $this->load->view('Template/header', $data);
+        $this->load->view('v_detail_fuzzy', $data);
+        $this->load->view('Template/footer');
     }
 }

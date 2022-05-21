@@ -17,6 +17,8 @@ class M_proses_fuzzy extends CI_Model
     public function i_derajat_keanggotaan($data)
     {
         $data = [
+
+            'id_nilai_derajat' => $this->autonumber_nilai_derajat(),
             'id_admin' => $data['id_admin'],
 
             'co_baik' => $data['co_baik'],
@@ -39,7 +41,7 @@ class M_proses_fuzzy extends CI_Model
     public function i_rule_nilai($data2)
     {
         $data = [
-            'id_admin' => $data2['id_admin'],
+            'id_nilai_derajat' => $this->autonumber_nilai_derajat(),
             'rule_1' => $data2['r1'], 'rule_2' => $data2['r2'], 'rule_3' => $data2['r3'], 'rule_4' => $data2['r4'], 'rule_5' => $data2['r5'],
             'rule_6' => $data2['r6'], 'rule_7' => $data2['r7'], 'rule_8' => $data2['r8'], 'rule_9' => $data2['r9'], 'rule_10' => $data2['r10'],
             'rule_11' => $data2['r11'], 'rule_12' => $data2['r12'], 'rule_13' => $data2['r13'], 'rule_14' => $data2['r14'], 'rule_15' => $data2['r15'],
@@ -53,9 +55,10 @@ class M_proses_fuzzy extends CI_Model
     public function hasil_fuzzy($data3)
     {
         $data = [
-            'rata_nilai_co' => $data3['rata_nilai_co'],
-            'rata_nilai_no' => $data3['rata_nilai_no'],
-            'hasil_fuzzy'   => $data3['hasil_fuzzy'],
+            'id_nilai_derajat' => $this->autonumber_nilai_derajat(),
+            'rata_nilai_co'    => $data3['rata_nilai_co'],
+            'rata_nilai_no'    => $data3['rata_nilai_no'],
+            'hasil_fuzzy'      => $data3['hasil_fuzzy'],
         ];
 
         $this->db->insert('tbl_hasil_fuzzy', $data);
@@ -74,9 +77,42 @@ class M_proses_fuzzy extends CI_Model
         return $result;
     }
 
-    public function hapus($where,$table)
+    public function hapus($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);
+    }
+
+    //membuat auto code 
+    function autonumber_nilai_derajat()
+    {
+        $q = $this->db->query("SELECT MAX(RIGHT(id_nilai_derajat,2)) AS kd_max FROM tbl_nilai_derajat");
+        $kd = "";
+        $i = "ND";
+        if ($q->num_rows() > 0) {
+            foreach ($q->result() as $k) {
+                $tmp = ((int) $k->kd_max) + 1;
+                $kd = sprintf("%02s", $tmp);
+            }
+        } else {
+            $kd = "01";
+        }
+        date_default_timezone_set('Asia/Jakarta');
+        return $i . $kd;
+    }
+
+    public function getId_nilai_derajat($id)
+    {
+        return $this->db->get_where('tbl_nilai_derajat', ['id_nilai_derajat' => $id])->row_array();
+    }
+
+    public function getId_nilai_rule($id)
+    {
+        return $this->db->get_where('tbl_nilai_rule', ['id_nilai_derajat' => $id])->row_array();
+    }
+
+    public function getId_hasil($id)
+    {
+        return $this->db->get_where('tbl_hasil_fuzzy', ['id_nilai_derajat' => $id])->row_array();
     }
 }
