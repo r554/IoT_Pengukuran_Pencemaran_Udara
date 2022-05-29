@@ -62,6 +62,7 @@ class Data_kriteria extends CI_Controller
             'id_kriteria' => $id
         );
         $this->M_kriteria->input($data,'tbl_kriteria');
+        $this->session->set_flashdata('flash','Ditambahkan');
         redirect('Data_kriteria');
     }
 
@@ -105,6 +106,7 @@ class Data_kriteria extends CI_Controller
             'id_kriteria' => $id
         );
         $this->M_kriteria->update($where,$data,'tbl_kriteria');
+        $this->session->set_flashdata('flash','Diubah');
         redirect('Data_kriteria');
     }
 

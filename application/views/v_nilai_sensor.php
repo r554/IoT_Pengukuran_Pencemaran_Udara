@@ -1,4 +1,5 @@
 <!--start page wrapper -->
+
 <div class="page-wrapper">
     <div class="page-content">
         <h6 class="mb-0 text-uppercase">Data Nilai Sensor</h6>
@@ -26,8 +27,8 @@
                                 <td><?= $rdata_nilai->tanggal_input; ?></td>
                                 <td>
                                     <a class="btn btn-sm btn-danger"
-                                        href="<?php echo base_url() . 'Nilai_sensor/hapus/' . $rdata_nilai->id_nilai ?>"><i
-                                            class="fa fa-trash">
+                                        href="<?php echo base_url() . 'Nilai_sensor/hapus/' . $rdata_nilai->id_nilai ?>"
+                                        onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash">
                                         </i> </a>
                                 </td>
                             </tr>

@@ -26,7 +26,7 @@ class Proses_fuzzy extends CI_Controller
         // var_dump($r1);
         // die();
 
-        $data['title'] = "Data Kriteria";
+        $data['title'] = "Proses Fuzzy";
         $this->load->view('Template/header', $data);
         $this->load->view('v_proses_fuzzy', $data);
         $this->load->view('Template/footer');
@@ -113,7 +113,7 @@ class Proses_fuzzy extends CI_Controller
             $h_d = round($D, 2);
 
             //Derajat Keanggotaan CO Himpunan E
-            if (round($avg_co, 2) >= 262) {
+            if (round($avg_co, 2) < 262) {
                 $E = 0;
             } else if (round($avg_co, 2) >= 262 && round($avg_co, 2) < 287) {
                 $E = (round($avg_co, 2) - 262) / (282 - 262);

@@ -12,7 +12,8 @@
     <link rel="icon" href="<?= base_url() ?>assets/admin/assets/images/favicon-32x32.png" type="image/png" />
     <!--plugins-->
     <link href="<?= base_url() ?>assets/admin/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-    <link href="<?= base_url() ?>assets/admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>assets/admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css"
+        rel="stylesheet" />
     <link href="<?= base_url() ?>assets/admin/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <!-- loader-->
     <link href="<?= base_url() ?>assets/admin/assets/css/pace.min.css" rel="stylesheet" />
@@ -47,44 +48,43 @@
                                     }
                                     ?>
                                     <div class="text-center">
-                                        <h3 class="">Sign in</h3>
-                                        <p>SPPU Dinas Pertanian Kabupaten jember
-                                        </p>
+
+                                        <h5>Sistem Pengukuran Tingkat Pencemaran Udara Sektor Pertanian
+                                        </h5>
                                     </div>
-                                    <div class="d-grid">
+                                    <!-- <div class="d-grid">
                                         <a class="btn my-4 shadow-sm btn-white" href="javascript:;"> <span class="d-flex justify-content-center align-items-center">
                                                 <img class="me-2" src="<?= base_url() ?>assets/admin/assets/images/icons/search.svg" width="16" alt="Image Description">
                                                 <span>Sign in with Google</span>
                                             </span>
                                         </a>
-                                        <!-- <a href="javascript:;" class="btn btn-facebook"><i class="bx bxl-facebook"></i>Sign in with Facebook</a> -->
-                                    </div>
-                                    <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
+                                       
+                                    </div> -->
+                                    <div class="login-separater text-center mb-4"> <span> SIGN IN </span>
                                         <hr />
                                     </div>
                                     <div class="form-body">
                                         <form class="row g-3" action="<?= base_url('Auth/login') ?>" method="POST">
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="inputEmailAddress" placeholder="Email Username" name="username" required>
+                                                <input type="text" class="form-control" id="inputEmailAddress"
+                                                    placeholder="Username" name="username" required>
                                             </div>
                                             <div class="col-12">
                                                 <label for="inputChoosePassword" class="form-label">Password</label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0" name="password" id="inputChoosePassword" placeholder="Enter Password" required> <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                    <input type="password" class="form-control border-end-0"
+                                                        name="password" id="inputChoosePassword"
+                                                        placeholder="Enter Password" required> <a href="javascript:;"
+                                                        class="input-group-text bg-transparent"><i
+                                                            class='bx bx-hide'></i></a>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Forgot Password ?</a>
-                                            </div>
+
                                             <div class="col-12">
                                                 <div class="d-grid">
-                                                    <button type="submit" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Sign in</button>
+                                                    <button type="submit" class="btn btn-primary"><i
+                                                            class="bx bxs-lock-open"></i>Sign in</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -108,20 +108,20 @@
     <script src="<?= base_url() ?>assets/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
     <!--Password show & hide js -->
     <script>
-        $(document).ready(function() {
-            $("#show_hide_password a").on('click', function(event) {
-                event.preventDefault();
-                if ($('#show_hide_password input').attr("type") == "text") {
-                    $('#show_hide_password input').attr('type', 'password');
-                    $('#show_hide_password i').addClass("bx-hide");
-                    $('#show_hide_password i').removeClass("bx-show");
-                } else if ($('#show_hide_password input').attr("type") == "password") {
-                    $('#show_hide_password input').attr('type', 'text');
-                    $('#show_hide_password i').removeClass("bx-hide");
-                    $('#show_hide_password i').addClass("bx-show");
-                }
-            });
+    $(document).ready(function() {
+        $("#show_hide_password a").on('click', function(event) {
+            event.preventDefault();
+            if ($('#show_hide_password input').attr("type") == "text") {
+                $('#show_hide_password input').attr('type', 'password');
+                $('#show_hide_password i').addClass("bx-hide");
+                $('#show_hide_password i').removeClass("bx-show");
+            } else if ($('#show_hide_password input').attr("type") == "password") {
+                $('#show_hide_password input').attr('type', 'text');
+                $('#show_hide_password i').removeClass("bx-hide");
+                $('#show_hide_password i').addClass("bx-show");
+            }
         });
+    });
     </script>
     <!--app JS-->
     <script src="<?= base_url() ?>assets/admin/assets/js/app.js"></script>

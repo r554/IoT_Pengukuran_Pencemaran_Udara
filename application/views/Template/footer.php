@@ -6,7 +6,7 @@
 
 <!--End Back To Top Button-->
 <footer class="page-footer">
-    <p class="mb-0">Copyright © 2021. All right reserved.</p>
+    <p class="mb-0">Copyright © 2022. All right reserved.</p>
 </footer>
 
 </div>
@@ -31,29 +31,29 @@
 <!--app JS-->
 <script src="<?= base_url() ?>assets/admin/assets/js/app.js"></script>
 <script>
-    new PerfectScrollbar('.customers-list');
-    new PerfectScrollbar('.store-metrics');
-    new PerfectScrollbar('.product-list');
+new PerfectScrollbar('.customers-list');
+new PerfectScrollbar('.store-metrics');
+new PerfectScrollbar('.product-list');
 </script>
 
 <!-- Datatables -->
 <script src="<?= base_url() ?>assets/admin/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
+$(document).ready(function() {
+    $('#example').DataTable();
+});
 </script>
 <script>
-    $(document).ready(function() {
-        var table = $('#example2').DataTable({
-            lengthChange: false,
-            buttons: ['copy', 'excel', 'pdf', 'print']
-        });
-
-        table.buttons().container()
-            .appendTo('#example2_wrapper .col-md-6:eq(0)');
+$(document).ready(function() {
+    var table = $('#example2').DataTable({
+        lengthChange: false,
+        buttons: ['copy', 'excel', 'pdf', 'print']
     });
+
+    table.buttons().container()
+        .appendTo('#example2_wrapper .col-md-6:eq(0)');
+});
 </script>
 
 </body>

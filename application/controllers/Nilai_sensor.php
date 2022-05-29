@@ -25,6 +25,7 @@ class Nilai_sensor extends CI_Controller
     {
         $where = array ('id_nilai' => $id);
         $this->M_nilai_sensor->hapus($where,'nilai_sensor');
+        
         redirect('Nilai_sensor');
     }
 }

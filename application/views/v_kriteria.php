@@ -3,6 +3,16 @@
     <div class="page-content">
         <h6 class="mb-0 text-uppercase">Data Kriteria</h6>
         <hr />
+        <?php if ($this->session->flashdata('flash')):?>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data Kriteria Berhasil <?=$this->session->flashdata('flash'); ?>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <?php endif;?>
         <div class="card">
             <div class="card-body">
                 <div class="col-lg-6 col-5 text-left">
@@ -48,8 +58,8 @@
                                             class="btn btn-sm btn-success"><i class="fa fa-edit"></i> </button>
                                     </a>
                                     <a class="btn btn-sm btn-danger"
-                                        href="<?php echo base_url() . 'Data_kriteria/hapus/' . $rdata_kriteria->id_kriteria ?>"><i
-                                            class="fa fa-trash">
+                                        href="<?php echo base_url() . 'Data_kriteria/hapus/' . $rdata_kriteria->id_kriteria ?>"
+                                        onclick="return confirm('Apakah anda yakin?');"><i class="fa fa-trash">
                                         </i> </a>
                             </tr>
                             <?php endforeach; ?>

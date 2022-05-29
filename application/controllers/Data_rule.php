@@ -51,6 +51,7 @@ class Data_rule extends CI_Controller
             'id_rule' => $id
         );
         $this->M_rule->input($data,'tbl_rule_fuzzy');
+        $this->session->set_flashdata('flash','Ditambahkan');
         redirect('Data_rule');
     }
 
@@ -83,6 +84,7 @@ class Data_rule extends CI_Controller
             'id_rule' => $id
         );
         $this->M_rule->update($where,$data,'tbl_rule_fuzzy');
+        $this->session->set_flashdata('flash','Diubah');
         redirect('Data_rule');
     }
 
